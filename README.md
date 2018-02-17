@@ -1,2 +1,3 @@
 # smoothieverse
-An app for sharing the tastiest smoothes
+
+An app for sharing the tastiest smoothies
