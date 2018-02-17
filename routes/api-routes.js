@@ -33,7 +33,7 @@ module.exports = function(app) {
 	// Get to display all comments - Placeholder
 	app.get("/api/comment", function(req, res){
 		db.User.findAll({
-			include: [db.User]
+			include: [db.User],
 			include: [db.Smoothie]
 		}).then(function(dbComment){
 			res.json(dbComment);
