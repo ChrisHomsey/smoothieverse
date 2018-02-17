@@ -8,40 +8,35 @@ var db = require("../models");
 // ==========================================
 
 module.exports = function(app) {
-	// GET route for obtaining all of a user's submissions - PLACEHOLDER
 
-	app.get("/api/posts", function(req, res){
-		var query = {};
-		if (req.query.user_id) {
-			query.UserId = req.query.user_id
-		}
+	// Get to display all users - Placeholder
+	app.get("/api/user", function(req, res){
 
-		db.Post.findAll({
-			where: query,
-			include: [db.user]
-		}).then(function(dbPost){
-			res.json(dbPost);
+		db.User.findAll({
+			include: [db.Smoothie],
+			include: [db.Comment]
+		}).then(function(dbUser){
+			res.json(dbUser);
 		});
 	});
 
-	// POST route for user to post submission - PLACEHOLDER
-	app.post("/api/posts", function(req, res) {
-		db.Post.create(req.body).then(function(dbPost){
-			res.json(dbPost);
+	// Get to display all smoothie recipes - Placeholder
+	app.get("/api/smoothie", function(req, res){
+		db.User.findAll({
+			include: [db.User],
+			include: [db.Comment]
+		}).then(function(dbSmoothie){
+			res.json(dbSmoothie);
 		});
 	});
 
-	// PUT route for updating a user's submission - PLACEHOLDER
-	app.put("/api/posts", function(req, res){
-		db.Post.update(
-			req.body,
-			{
-				where: {
-					id: req.body.id
-				}
-			}).then(function(dbPost){
-				res.json(dbPost);
-			});
+	// Get to display all comments - Placeholder
+	app.get("/api/comment", function(req, res){
+		db.User.findAll({
+			include: [db.User]
+			include: [db.Smoothie]
+		}).then(function(dbComment){
+			res.json(dbComment);
+		});
 	});
-
 };
