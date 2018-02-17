@@ -1,8 +1,10 @@
 // Dependencies
+// ==========================================
 
 var path = require("path");
 
 // Routes
+// ==========================================
 
 module.exports = function(app) {
 	//index route goes to index.html
