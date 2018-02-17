@@ -95,6 +95,10 @@ body {
 	background: #4CAF50;
 }
 
+#ingredient-input {
+  width: 500px;
+}
+
 
 .footer {
     width:100%
