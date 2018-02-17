@@ -15,7 +15,13 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: {
         allowNull: false
       }
-    })
+    });
+
+    Comment.belongsTo(models.Smoothie, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   }
   return Comment;
 };
