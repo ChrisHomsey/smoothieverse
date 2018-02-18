@@ -75,20 +75,24 @@
                <div class="panel-body">
                   <form>
                      <div class="form-group">
-                        <label for="smoothie-name-input">Smoothie Name:</label>
+                        <label for="smoothie-name-input">Smoothie Title:</label>
                         <input type="text" class="form-control" id="smoothie-name-input" style="width: 300px;">
                      </div>
-                
+                      <div class="form-group">
+                        <label for="smoothie-name-input">Description:</label>
+                        <input type="text" class="form-control" id="smoothie-name-input" placeholder="optional" style="width: 300px;">
+                     </div>
                      <div class="form-group">
-                        <label for="ingredient-input" display="block">Ingredients:</label>
-                        <input type="text" id="ingredient-input" placeholder="ex. 3 cups Orange Juice">
+                        <label for="ingredient-input">Ingredients:</label>
+                        <br>
+                        <input type="text" class="form-control" id="ingredient-input" placeholder="ex. 3/4 cups Orange Juice" style="width: 300px; display: inline-block;">
                         <button  class="btn btn-primary" id="add-ingredient">Add Ingredient</button>
                           <div id="add-list"></div>
                      </div>
 
                      <div class="form-group">
-                        <label for="instruction-input">Instructions:</label>
-                        <input type="text" class="form-control" id="instruction-input" style="width: 100%; height: 200px;">
+                        <div class="form-label" id="instruction-input"><strong>Instructions:</strong></div>
+                        <textarea></textarea>
                      </div>
 
                      <button  class="btn btn-primary" id="submit-recipe">Submit</button>

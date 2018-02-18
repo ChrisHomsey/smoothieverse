@@ -36,9 +36,7 @@ body {
 }
 
 .myCarousel {
-  font-family: helvetica,sans-serif;
-  font-size: 14px;
-  width: 100px;
+  width: 100%;
   position: relative;
   margin: 1em;
   border: 1px solid #ccc;
@@ -51,19 +49,19 @@ body {
 	margin-top:20px; 
 	border:solid thin #000000; 
 	border-radius: 10px;
-}
-.content {
-  margin: 0;
-  padding: 0;
-}
-.content li {
-  font-size: 100px;
-  margin: 0;
-  padding: 0;
+  height: 400px;
+  min-width: 100%;
   width: 100%;
-  list-style: none;
-  text-align: center;
+  max-width: 100%;
+  line-height: 1.25;
+
 }
+
+.carousel-caption, #site-intro,h1 {
+  font-family: 'Indie Flower', cursive;
+  color: #000000;
+}
+
 
 .btn-hovn1:hover {
     background-color: #4CAF50;
@@ -86,17 +84,29 @@ body {
 
 #user-submit {
 	height:50px;
-    width: 70px;
-    border: solid 1px #000000;
-    background: #ACA1A1;
+  width: 70px;
+  border: solid 1px #000000;
+  background: #ACA1A1;
 }
 
 #user-submit, #submit-recipe, #add-ingredient{
 	background: #4CAF50;
 }
 
-#ingredient-input {
-  width: 500px;
+textarea {
+  width: 100%; 
+  height: auto;
+
+}
+
+
+#site-intro, #intro-title {
+  text-align: center;
+  font-size: 35px;
+}
+
+#site-intro {
+  font-size: 35px;
 }
 
 
