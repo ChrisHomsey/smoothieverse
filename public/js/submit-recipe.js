@@ -1,5 +1,16 @@
 // This code explains what happens when a user submits a smoothie
 
+$("#add-ingredient").click(function(event){ 
+	event.preventDefault();
+	var ingredient = $("#ingredient-input").val().trim();
+	console.log(ingredient);
+	if (ingredient) {
+		$("#add-list").append($("<h2>").text(ingredient));
+		$("#ingredient-input").val("");
+	}
+});
+
+
 // When user clicks on submit button
 $("#submit-recipe").on("click", function(event){
 	event.preventDefault();
@@ -8,7 +19,7 @@ $("#submit-recipe").on("click", function(event){
 	var newSmoothieRecipe = {
 		name: $("#smoothie-name-input").val().trim(),
 		description: $("#description-input").val().trim(),
-		ingredients: $("#ingredient-input").val().trim(),
+		ingredients: $("#add-list").val().trim(),
 		instructions: $("#instructions").val().trim()
 	};
 
@@ -25,6 +36,6 @@ $("#submit-recipe").on("click", function(event){
 	// Clear all input fields
 	$("#smoothie-name-input").val("");
 	$("#description-input").val("");
-	$("#ingredient-input").val("");
+	$("#add-list").val("");
 	$("#instructions").val("");
 });
