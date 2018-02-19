@@ -1,4 +1,5 @@
 # Smoothieve
+![alt text](https://github.com/ChrisHomsey/smoothieverse/blob/master/public/img/logo.png)
 
 **Description:**     
 A place for users to log in and share their favorite smoothie recipes.
