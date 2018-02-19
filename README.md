@@ -1,19 +1,19 @@
-# Smoothieverse
+# Smoothieve
 
-Description: 
+**Description:**     
 A place for users to log in and share their favorite smoothie recipes.
 
-Gruop Members: 
-*Stuart Kushner
-*Chris Homsey
-*Roxann Bindas
-*Kyle Crane, 
+**Gruop Members:**     
+*Stuart Kushner  
+*Chris Homsey  
+*Roxann Bindas  
+*Kyle Crane   
 
-Techonologies used: 
-*Node
-*Express
-*Sequelize
-*Passport-Authentication
-*Bootsrap
-*JavaScript
+**Techonologies used:**     
+*Node  
+*Express  
+*Sequelize  
+*Passport-Authentication  
+*Bootsrap  
+*JavaScript  
 
