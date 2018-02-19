@@ -1,4 +1,3 @@
-# Smoothieve
 ![alt text](https://github.com/ChrisHomsey/smoothieverse/blob/master/public/img/logo.png)
 
 **Description:**     
