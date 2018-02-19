@@ -2,6 +2,7 @@ body {
   background: url("../img/bg.jpg"); 
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 
@@ -18,7 +19,7 @@ body {
 }
 
 .navbar .brand, .navbar .nav > li > a:hover {
-    background: #24B06A;
+    background: #3F3D3D; 
     
 }
 
@@ -82,15 +83,13 @@ body {
 	background: #4CAF50 !important;
 }
 
-#user-submit {
-	height:50px;
-  width: 70px;
-  border: solid 1px #000000;
-  background: #ACA1A1;
+#user-submit, #submit-recipe, #add-ingredient, #add-submit {
+	background: #4FA44F;
+  border: solid 1px #4FA44F;
 }
 
-#user-submit, #submit-recipe, #add-ingredient{
-	background: #4CAF50;
+#user-submit, #submit-recipe, #add-ingredient, #add-submit {
+  color: #ffffff;
 }
 
 textarea {
@@ -111,12 +110,9 @@ textarea {
 
 
 .footer {
-    width:100%
-    height:60px;
-    position:absolute;
+    width:100%;
     text-align: center;
     color: #000000;
-    margin-top:20px;
     font-size:12px;
     bottom: 0;
 }
