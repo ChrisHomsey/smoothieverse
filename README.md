@@ -3,17 +3,17 @@
 **Description:**     
 A place for users to log in and share their favorite smoothie recipes.
 
-**Gruop Members:**     
+**Group Members:**     
 *Stuart Kushner  
 *Chris Homsey  
 *Roxann Bindas  
 *Kyle Crane   
 
-**Techonologies used:**     
+**Technologies used:**     
 *Node  
 *Express  
 *Sequelize  
 *Passport-Authentication  
-*Bootsrap  
+*Bootstrap  
 *JavaScript  
 

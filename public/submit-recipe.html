@@ -76,26 +76,24 @@
                   <form>
                      <div class="form-group">
                         <label for="smoothie-name-input">Smoothie Title:</label>
-                        <input type="text" class="form-control" id="smoothie-name-input" style="width: 300px;">
+                        <input type="text" class="form-control" id="smoothie-name-input" style="width: 300px;" required>
                      </div>
                       <div class="form-group">
                         <label for="smoothie-name-input">Description:</label>
-                        <input type="text" class="form-control" id="smoothie-name-input" placeholder="optional" style="width: 300px;">
+                        <input type="text" class="form-control" id="description-input" placeholder="optional" style="width: 300px;">
                      </div>
                      <div class="form-group">
                         <label for="ingredient-input">Ingredients:</label>
                         <br>
-                        <input type="text" class="form-control" id="ingredient-input" placeholder="ex. 3/4 cups Orange Juice" style="width: 300px; display: inline-block;">
-                        <button  class="btn btn-primary" id="add-ingredient">Add Ingredient</button>
-                          <div id="add-list"></div>
+                        <input type="text" class="form-control" id="ingredient-input" placeholder="ex. 3/4 cups Orange Juice" style="width: 300px; display: inline-block;" required>
                      </div>
 
                      <div class="form-group">
                         <div class="form-label" id="instruction-input"><strong>Instructions:</strong></div>
-                        <textarea></textarea>
+                        <textarea id="instructions" required></textarea>
                      </div>
 
-                     <button  class="btn btn-primary" id="submit-recipe">Submit</button>
+                     <button class="btn btn-primary" id="submit-recipe">Submit</button>
                   </form>               
                </div>
             </div> 
@@ -105,37 +103,9 @@
   <div class="container">
     <p>&copy; Copyright, 2018. All rights reserved - Chris Homsey, Stuart Kushner, Kyle Crane, Roxann Bindas</p>
   </div>
-</footer>        
+</footer>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#add-ingredient").click(function(event){
-      event.preventDefault();
-      console.log("add ingredient listener is working")
-      var ingredient = $("#ingredient-input").val().trim();
-      console.log("the ingredient is " + ingredient);
-      if (ingredient) {
-        console.log("ingredient there");
-          $("#add-list").append($("<h2>").text(ingredient));
-
-        
-      } else {
-        console.log("ingred not there");
-      }
-      $("#ingredient-input").val("");
-
-    })
-
-    $("#submit-recipe").click(function(event){
-      event.preventDefault();
-    
-
-    })
-  })
-
-
-
-</script>
+<script src="./js/submit-recipe.js" type="text/javascript"></script>        
 
 </body>
 </html> 
