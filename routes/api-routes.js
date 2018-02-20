@@ -1,13 +1,8 @@
-// Dependencies
-// ==========================================
-
-// Require our models
-var db = require("../models");
 
 // Routes
 // ==========================================
 
-module.exports = function(app) {
+module.exports = function(app, db) {
 
 	// Get to display all users - Placeholder
 	app.get("/api/user", function(req, res){

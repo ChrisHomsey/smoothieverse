@@ -1,42 +1,53 @@
 // Dependencies
-// ==========================================
 
-var express = require("express");
-var bodyParser = require("body-parser");
+var express = require('express'),
+	env = require('dotenv').load(),
+	passport = require('passport'),
+	bodyParser = require('body-parser'),
+	cookieParser = require('cookie-parser'),
+	session = require('express-session'),
+	exphbs = require("express-handlebars"),
+	path = require('path');
 
 // Sets up the express app
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// Use models for syncing
-var db = require("./models");
-
-// Sets up express app to handle data parsing
-// ==========================================
-
 // Static directory
 app.use(express.static("public"));
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
+// Body-parser setup
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Set Handlebars
-var exphbs = require("express-handlebars");
+// Cookie-parser setup
+app.use(cookieParser());
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// Session and passport setup
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Set Handlebars
+app.engine("handlebars", exphbs({ 
+	defaultLayout: "main",
+	layoutsDir: path.join(__dirname, 'views/layouts') }));
 app.set("view engine", "handlebars");
 
-// Routes
-// ==========================================
+//Models
+db = require('./models');
 
-require("./routes/api-routes.js")(app);
+// Routes
+require("./routes/api-routes.js")(app, db);
 require("./routes/html-routes.js")(app);
+var authRoute = require('./routes/auth.js')(app, passport);
+
+//Load passport strategy
+require('./config/passport/passport.js')(passport, db.User);
+
+
 
 // Syncing our sequelize model and starting our app
-// ==========================================
-
 db.sequelize.sync({ force: true }).then(function(){
 	app.listen(PORT, function(){
 		console.log("App listening on PORT " + PORT);

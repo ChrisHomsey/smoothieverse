@@ -1,22 +1,41 @@
+var bcrypt = require('bcrypt-nodejs');
+
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+  var User = sequelize.define('User', {
     username: {
-    	type: DataTypes.STRING,
-    	allowNull: false,
+      type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
       validate: {
-        is: /^[a-z0-9\_\-]+$/i,
-        len: [4,20]
+        
       }
-    }, 
+    },
     password: {
-    	type: DataTypes.STRING,
-    	allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        len: [8,24]
+        
       }
     }
-  });
+  },
+  {
+    classMethods: {
+      validPassword: function(password, passwd, done, user){
+        bcrypt.compare(password, passwd, function(err, isMatch){
+          if (err) console.log(err);
+          if(isMatch) {
+            return done(null, user);
+          } else {
+            return done(null, false);
+          }
+        })
+      }
+    }
+  },
+  {
+    dialect: 'mysql'
+  }
+  );
 
   User.associate = function(models){
     User.hasMany(models.Smoothie, {
@@ -28,6 +47,5 @@ module.exports = function(sequelize, DataTypes) {
     })
   }
 
-
   return User;
-};
+}
