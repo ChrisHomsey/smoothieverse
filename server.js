@@ -6,6 +6,7 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	cookieParser = require('cookie-parser'),
 	session = require('express-session'),
+	// cookieSession = require('cookie-session'),
 	exphbs = require("express-handlebars"),
 	path = require('path');
 
@@ -24,12 +25,13 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Session and passport setup
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}));
+app.use(session({ secret: 'developmentstagesecret0017',resave: true, saveUninitialized:true}));
+// app.use(cookieSession());
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Set Handlebars
-app.engine("handlebars", exphbs({ 
+app.engine("handlebars", exphbs({
 	defaultLayout: "main",
 	layoutsDir: path.join(__dirname, 'views/layouts') }));
 app.set("view engine", "handlebars");

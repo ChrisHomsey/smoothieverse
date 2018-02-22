@@ -15,10 +15,13 @@ module.exports = function(app, passport) {
 
  	app.post('/login', passport.authenticate('local-signin', 
 	 	{
-	 		successRedirect: '/dashboard',
 	 		failureRedirect: '/login'
+ 		}),
+ 		function(req, res){
+ 			console.log("res begin", res.req.user);
+ 			res.redirect('/dashboard');
  		}
- 	));
+ 	);
 
  	app.get('/dashboard', isLoggedIn, authController.dashboard);
 
