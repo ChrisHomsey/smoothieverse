@@ -16,13 +16,23 @@ $(document).ready(function(){
 		event.preventDefault();
 		var apiName = $("#smoothie-name-input").val().trim().replace(/\s+/g, "").toLowerCase();
 		console.log("apiName", apiName);
+		var ingredientArray = [];
+		var ingredientList = $("#add-list h2");
+		console.log(ingredientList);
+
+		if (ingredientList !== null) {
+			for (var i = 0; i < ingredientList.length; i++) {
+				ingredientArray.push(ingredientList[i].innerText);
+				console.log(ingredientArray);
+			}
+		}
 
 		// a new smoothie recipe object is created from all inputs
 		var newSmoothieRecipe = {
 			name: $("#smoothie-name-input").val().trim(),
 			apiName: apiName,
 			description: $("#description-input").val().trim(),
-			ingredients: $("#add-list").val().trim(),
+			ingredients: JSON.stringify(ingredientArray),
 			instructions: $("#instructions").val().trim()
 		};
 
@@ -39,7 +49,7 @@ $(document).ready(function(){
 		// Clear all input fields
 		$("#smoothie-name-input").val("");
 		$("#description-input").val("");
-		$("#add-list").val("");
+		$("#add-list").empty();
 		$("#instructions").val("");
 	});
 });
