@@ -12,8 +12,9 @@ A place for users to log in and share their favorite smoothie recipes.
 **Technologies used:**     
 *Node  
 *Express  
-*Sequelize  
-*Passport-Authentication  
+*Sequelize 
+*Handlebars  
+*Passport-Authentication    
 *Bootstrap  
 *JavaScript  
 
