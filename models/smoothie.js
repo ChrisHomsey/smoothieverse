@@ -4,8 +4,15 @@ module.exports = function(sequelize, DataTypes) {
     	type: DataTypes.STRING,
     	allowNull: false,
     	validate: {
-    		len: [1, 16]
+    		len: [1, 255]
     	}
+    },
+    apiName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 255]
+      }
     },
     image_url: {
       type: DataTypes.STRING,
@@ -16,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     ingredients: {
     	type: DataTypes.TEXT,
