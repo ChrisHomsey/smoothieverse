@@ -13,8 +13,8 @@ A place for users to log in and share their favorite smoothie recipes.
 *Node  
 *Express  
 *Sequelize 
-*Handlebars
-*Passport-Authentication  
+*Handlebars  
+*Passport-Authentication    
 *Bootstrap  
 *JavaScript  
 
