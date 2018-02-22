@@ -35,7 +35,7 @@ module.exports = function(app, db) {
 			name: req.body.name,
 			apiName: req.body.apiName,
 			image_url: req.body.image_url,
-			descriptions: req.body.descriptions,
+			description: req.body.description,
 			ingredients: req.body.ingredients,
 			instructions: req.body.instructions
 		}).then(function(dbSmoothie){
