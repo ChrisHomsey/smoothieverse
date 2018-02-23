@@ -6,6 +6,7 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	cookieParser = require('cookie-parser'),
 	session = require('express-session'),
+	flash = require('connect-flash'),
 	exphbs = require("express-handlebars"),
 	path = require('path');
 
@@ -27,6 +28,8 @@ app.use(cookieParser());
 app.use(session({ secret: 'developmentstagesecret0017',resave: true, saveUninitialized:true}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 
 // Set Handlebars
 app.engine("handlebars", exphbs({
@@ -38,9 +41,10 @@ app.set("view engine", "handlebars");
 db = require('./models');
 
 // Routes
+var authRoute = require('./routes/auth.js')(app, passport);
 require("./routes/api-routes.js")(app, db);
 require("./routes/html-routes.js")(app);
-var authRoute = require('./routes/auth.js')(app, passport);
+
 
 //Load passport strategy
 require('./config/passport/passport.js')(passport, db.User);

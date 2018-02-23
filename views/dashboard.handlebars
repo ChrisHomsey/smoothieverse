@@ -1,6 +1,15 @@
-<h2>Dashboard</h2>
-<h5>Hurray! you are logged in.</h5>
-{{asf.username}}
-{{user.username}}
+<div class="panel panel-primary" align="left">
+    <div class="panel-heading">
+        <h3 class="panel-title"><strong>Dashboard</strong></h3>
+    </div>
+    <div class="panel-body">
+	
+		<h2>{{sessionUser.username}}</h2>
+		<h5>Member since: <br>{{sessionUser.createdAt}}</h5>
 
-<a href="/logout" class="btn btn-primary">Logout</a>
+		<a href="/submit" class='btn btn-primary'>Submit a recipe</a>
+
+		<a href="/logout" class="btn btn-danger">Logout</a>
+
+	</div>
+</div>

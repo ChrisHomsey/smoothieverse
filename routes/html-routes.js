@@ -22,16 +22,22 @@ module.exports = function(app) {
 
 	//search goes to search-recipe.html
 	app.get("/search", function(req, res){
-		res.sendFile(path.join(__dirname, "../public/search-recipe.html"));
+		res.render("search", { sessionUser: req.session.user });
 	});
+
+	app.get("/browse", function(req, res){
+		res.render("browse", { sessionUser: req.session.user })
+	})
 
 	//submit goes to submit-recipe.html
 	app.get("/submit", function(req, res){
-		res.sendFile(path.join(__dirname, "../public/submit-recipe.html"));
+		console.log(req.session);
+		res.render("submit", { sessionUser: req.session.user });
 	});
 
 	//user goes to search-recipe.html
 	app.get("/user", function(req, res){
 		res.sendFile(path.join(__dirname, "../public/user-display.html"));
 	});
-};
+
+}

@@ -28,7 +28,7 @@ module.exports = function(passport, user) {
 			}).then(function(user) {
 
 				if (user) {
-					return done(null, false, {message: 'That username is already taken'});
+					return done(null, false, req.flash('signupMessage', 'That username is already taken'));
 				} else {
 
 					var userPassword = generateHash(password);
@@ -88,17 +88,13 @@ module.exports = function(passport, user) {
 
 				if (!user) {
 					console.log("Login failed. Username does not exist.");
-					return done(null, false, {
-						message: 'Username does not exist'
-					});
+					return done(null, false, req.flash('loginMessage', 'Username does not exist'));
 				}
 
 				if (!isValidPassword(user.password, password)) {
 
 					console.log("Login failed. Incorrect password.");
-					return done(null, false, {
-						message: 'Incorrect password'
-					});
+					return done(null, false, req.flash('loginMessage','Incorrect password'));
 
 				}
 
@@ -109,9 +105,7 @@ module.exports = function(passport, user) {
 
 				console.log("Error: ", err);
 
-				return done(null, false, {
-					message: 'Something went wrong with your Signin'
-				});
+				return done(null, false, req.flash('loginMessage', 'Something went wrong with your Signin'));
 
 			});
 		}

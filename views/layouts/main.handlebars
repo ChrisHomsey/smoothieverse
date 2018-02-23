@@ -35,25 +35,33 @@
             <div class="navbar-collapse collapse">
                 <!-- Navbar Menu -->
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="submit-recipe.html">Submit a recipe</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/submit">Submit a recipe</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/browse">Browse</a></li>
                     <li><a></a></li>
                 </ul>
                 <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control field search" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-success ">Submit</button>
+                    
                     <ul class="nav navbar-nav">
-                        <li>
+                        
+
                             {{#if sessionUser}}
+                            <li>
                                 <a href="/dashboard">{{sessionUser.username}}</a>
+                            </li>
+                            <li>
+                                <a href="/logout">Logout</a>
+                            </li>
                             {{else}}
+                            <li>
                                 <a href="/login">Login/Register</a>
+                            </li>
                             {{/if}}
                             
                             
-                        </li>
+                        
+
                     </ul>
                 </form>
             </div>
@@ -75,5 +83,6 @@
 	        <p>&copy; Copyright, 2018. All rights reserved - Chris Homsey, Stuart Kushner, Kyle Crane, Roxann Bindas</p>
 	    </div>
 	</footer>
+
 </body>
 </html>

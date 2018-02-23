@@ -3,6 +3,9 @@ var authController = require('../controllers/authcontroller.js');
 var newUser;
 
 module.exports = function(app, passport) {
+
+	//declare session Data
+	var sessionData;
  
     app.get('/signup', authController.signup);
 
@@ -18,9 +21,11 @@ module.exports = function(app, passport) {
  		}
  	);
 
- 	app.get('/signup-success', function(req,res){
- 		res.render('signup-success', { user: newUser });
- 	});
+	app.get('/signup-success', function(req,res){
+
+		res.render('signup-success', { user: newUser });
+	
+	});
  	
  	app.get('/login', authController.login);
 
@@ -30,10 +35,12 @@ module.exports = function(app, passport) {
 	 		session: true
  		}),
  		function(req, res){
- 			var sessionData = req.session;
- 			sessionData.user = req.user;
- 			console.log(req.message);
- 			res.redirect('/dashboard');
+ 			req.session.user = req.user;
+ 			req.session.save(function(err){
+ 				if (err) return next(err)
+ 				console.log(req.session.user);
+  				res.redirect('/dashboard');
+ 			})
  		}
  	);
 
@@ -52,4 +59,5 @@ module.exports = function(app, passport) {
 	    res.redirect('/login');
  
 	}
+
 }

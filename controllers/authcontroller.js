@@ -5,7 +5,7 @@ exports.signup = function(req, res) {
 }
 
 exports.login = function(req, res) {
-	res.render('login');
+	res.render('login', { message: req.flash('loginMessage')});
 }
 
 exports.dashboard = function(req, res) {

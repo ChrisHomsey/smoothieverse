@@ -8,14 +8,14 @@
         <div class="row-fluid login">
             <div class="dialog">
                 <div class="block">
-
 				<form action="/login" method="POST">
 					<label for="username">Username</label>
 					<input type="text" id="username" name="username" placeholder="Username" type="text" class="span12" />
 					<label for="password">Password</label>
 					<input type="password" id="password" name="password" placeholder="Password" class="span12" /><br>
+					<span class="text-danger">{{message}}</span>
 					<div class="form-actions">
-						<p>Don't have an account? <a href="/signup" class="">Sign Up</a> | <a href="#" class="reset-password">Forgot your password?</a></p>
+						<p>Don't have an account? <a href="/signup" class="">Sign Up</a></p>
 						<button class="btn btn-success" type="submit">Sign In</button>
 						<div class="clearfix"></div>
                         </div>
