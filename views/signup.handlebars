@@ -1,26 +1,29 @@
 
 
-<div class="container">
-    <div class="row-fluid login">
-        <div class="dialog">
-            <div class="block">
-                <div class="block-header">
-                    <h2>Sign Up</h2>
+
+<div class="panel panel-primary" align="left">
+    <div class="panel-heading">
+        <h3 class="panel-title"><strong>Sign Up</strong></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row-fluid login">
+            <div class="dialog">
+                <div class="block">
+                    <form id="signup" name="signup" method="post" action="/signup">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Username" type="text" class="span12" />
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password" class="span12" />
+                        <div class="form-actions">
+                            <button class="btn btn-success" type="submit" value="Sign Up">Sign Up</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
                 </div>
-                <form id="signup" name="signup" method="post" action="/signup">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Username" type="text" class="span12" />
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Password" class="span12" />
-                    <div class="form-actions">
-                        <button class="btn btn-success" type="submit" value="Sign Up">Sign Up</button>
-                        <div class="clearfix"></div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
-</div>     
+</div> 
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">

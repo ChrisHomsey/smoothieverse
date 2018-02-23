@@ -6,7 +6,6 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	cookieParser = require('cookie-parser'),
 	session = require('express-session'),
-	// cookieSession = require('cookie-session'),
 	exphbs = require("express-handlebars"),
 	path = require('path');
 
@@ -26,7 +25,6 @@ app.use(cookieParser());
 
 // Session and passport setup
 app.use(session({ secret: 'developmentstagesecret0017',resave: true, saveUninitialized:true}));
-// app.use(cookieSession());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -46,7 +44,6 @@ var authRoute = require('./routes/auth.js')(app, passport);
 
 //Load passport strategy
 require('./config/passport/passport.js')(passport, db.User);
-
 
 
 // Syncing our sequelize model and starting our app

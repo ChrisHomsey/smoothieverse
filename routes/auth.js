@@ -1,24 +1,38 @@
 var authController = require('../controllers/authcontroller.js');
- 
+
+var newUser;
+
 module.exports = function(app, passport) {
  
     app.get('/signup', authController.signup);
 
     app.post('/signup', passport.authenticate('local-signup', 
 	    {
-	 		successRedirect: '/dashboard',
-	 		failureRedirect: '/signup'
+	 		failureRedirect: '/signup',
+	 		session: true
+ 		}),
+ 		function(req, res){
+ 			console.log(req.body.username);
+ 			newUser = req.body.username;
+ 			res.redirect('/signup-success');
  		}
- 	));
+ 	);
+
+ 	app.get('/signup-success', function(req,res){
+ 		res.render('signup-success', { user: newUser });
+ 	});
  	
  	app.get('/login', authController.login);
 
  	app.post('/login', passport.authenticate('local-signin', 
 	 	{
-	 		failureRedirect: '/login'
+	 		failureRedirect: '/login',
+	 		session: true
  		}),
  		function(req, res){
- 			console.log("res begin", res.req.user);
+ 			var sessionData = req.session;
+ 			sessionData.user = req.user;
+ 			console.log(req.message);
  			res.redirect('/dashboard');
  		}
  	);
