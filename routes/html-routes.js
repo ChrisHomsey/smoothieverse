@@ -26,10 +26,6 @@ module.exports = function(app, passport) {
 		res.render("search", { sessionUser: req.session.user });
 	});
 
-	app.get("/browse", function(req, res){
-		res.render("browse", { sessionUser: req.session.user })
-	})
-
 	//submit goes to submit-recipe.html
 	// app.get("/submit", function(req, res){
 	// 	console.log(req.session);

@@ -83,7 +83,7 @@ body {
 	background: #4CAF50 !important;
 }
 
-#user-submit, #submit-recipe, #add-ingredient, #add-submit {
+#user-submit, #submit-recipe, #add-ingredient, #add-submit, #add-view {
 	background: #4FA44F;
   border: solid 1px #4FA44F;
 }

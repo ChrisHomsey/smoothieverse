@@ -31,8 +31,26 @@ $(document).ready(function(){
 		});
 	});
 
+	$("#add-view").on("click", function() {
+		event.preventDefault();
+		$.get("/api/smoothie", function(data){
+			console.log(data);
+			if(!data) {
+				$("#display-search").append("<h2> I'm sorry, but there are no smoothies available. </h2>");
+			} else {
+				for (var i = 0; i < data.length; i++) {
+					$("#display-search").append("<h2>" + data[i].name + "</h2>");
+					$("#display-search").append("<h3>" + data[i].description + "</h3>");
+					$("#display-search").append("<h3>" + data[i].ingredients + "</h3>");
+					$("#display-search").append("<h3>" + data[i].instructions + "</h3>");
+				}
+			}
+		});
+	});
+
 	// When the reset button is pressed, clear everything
 	$("#add-reset").on("click", function() {
+		event.preventDefault();
 		$("#smoothie-search").empty();
 		$("#display-search").empty();
 	});

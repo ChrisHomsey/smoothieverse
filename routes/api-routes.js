@@ -53,7 +53,14 @@ module.exports = function(app, db, passport) {
 			res.json(result);
 		});
 	});
-}
+
+	// Get all smoothie recipes
+	app.get("/api/smoothie", function(req, res){
+		db.Smoothie.findAll({}).then(function(result){
+			res.json(result);
+		});
+	});
+};
 
 
 
