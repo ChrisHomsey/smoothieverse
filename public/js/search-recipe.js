@@ -30,7 +30,7 @@ $(document).ready(function(){
 			$("#smoothie-search").empty();
 		});
 	});
-
+	// If person clicks this button, he or she can see all of the smoothie recipes submitted.
 	$("#add-view").on("click", function() {
 		event.preventDefault();
 		$.get("/api/smoothie", function(data){
