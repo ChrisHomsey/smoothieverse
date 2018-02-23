@@ -5,7 +5,7 @@
 
 // Routes
 // ==========================================
-module.exports = function(app, db) {
+module.exports = function(app, db, passport) {
 	// Search for all recipes by user
 	app.get("/api/user", function(req, res){
 		// Use a left outer join to get all of a user's submitted recipes

@@ -1,15 +1,23 @@
-<div class="panel panel-primary" align="left">
-    <div class="panel-heading">
-        <h3 class="panel-title"><strong>Dashboard</strong></h3>
-    </div>
-    <div class="panel-body">
-	
-		<h2>{{sessionUser.username}}</h2>
-		<h5>Member since: <br>{{sessionUser.createdAt}}</h5>
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12" align="center">
 
-		<a href="/submit" class='btn btn-primary'>Submit a recipe</a>
+			<div class="panel panel-primary" align="left">
+			    <div class="panel-heading">
+			        <h3 class="panel-title"><strong>Dashboard</strong></h3>
+			    </div>
+			    <div class="panel-body">
+				
+					<h2>{{sessionUser.username}}</h2>
+					<h5>Member since: <br>{{sessionUser.createdAt}}</h5>
 
-		<a href="/logout" class="btn btn-danger">Logout</a>
+					<a href="/submit" class='btn btn-primary'>Submit a recipe</a>
 
-	</div>
+					<a href="/logout" class="btn btn-danger">Logout</a>
+
+				</div>
+			</div>
+
+      </div>
+   </div>
 </div>

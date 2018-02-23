@@ -42,8 +42,8 @@ db = require('./models');
 
 // Routes
 var authRoute = require('./routes/auth.js')(app, passport);
-require("./routes/api-routes.js")(app, db);
-require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app, db, passport);
+require("./routes/html-routes.js")(app, passport);
 
 
 //Load passport strategy

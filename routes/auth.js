@@ -1,11 +1,9 @@
 var authController = require('../controllers/authcontroller.js');
 
-var newUser;
 
 module.exports = function(app, passport) {
 
 	//declare session Data
-	var sessionData;
  
     app.get('/signup', authController.signup);
 
@@ -44,9 +42,17 @@ module.exports = function(app, passport) {
  		}
  	);
 
- 	app.get('/dashboard', isLoggedIn, authController.dashboard);
 
  	app.get('/logout', authController.logout);
+
+
+ 	//Routes that require authentication to access
+ 	app.get('/dashboard', isLoggedIn, authController.dashboard);
+
+ 	app.get('/submit', isLoggedIn, function(req, res){
+ 		res.render('submit', { sessionUser: req.session.user });
+ 	});
+
 
  	//Function that checks to see if the user is authenticated- if not, it will redirect to the login
  	function isLoggedIn(req, res, next) {
@@ -55,7 +61,6 @@ module.exports = function(app, passport) {
 	    	return next();
 	    }
 
-	    console.log("Sorry, you are not logged in. Redirecting to /login page")
 	    res.redirect('/login');
  
 	}
