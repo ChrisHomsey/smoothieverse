@@ -15,7 +15,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Body-parser setup
 app.use(bodyParser.urlencoded({ extended: true }));

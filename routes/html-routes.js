@@ -26,15 +26,19 @@ module.exports = function(app, passport) {
 		res.render("search", { sessionUser: req.session.user });
 	});
 
-	//submit goes to submit-recipe.html
-	// app.get("/submit", function(req, res){
-	// 	console.log(req.session);
-	// 	res.render("submit", isLoggedIn, { sessionUser: req.session.user });
-	// });
-
-	//user goes to search-recipe.html
-	app.get("/user", function(req, res){
-		res.sendFile(path.join(__dirname, "../public/user-display.html"));
+	//smothie goes to recipe-display to show a single recipe page
+	app.get("/:id", function(req, res){
+		db.Smoothie.findOne({
+			where: {
+				id: req.params.id
+			}
+		}).then(function(result){
+			var chosenRecipe = result.dataValues;
+			var chosenIngredients = chosenRecipe.ingredients;
+			console.log();
+			res.render("recipe-display", { recipe: chosenRecipe, ingredients: chosenIngredients, sessionUser: req.session.user });
+		});
+		
 	});
 
 
