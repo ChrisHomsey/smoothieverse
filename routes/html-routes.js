@@ -34,8 +34,8 @@ module.exports = function(app, passport) {
 			}
 		}).then(function(result){
 			var chosenRecipe = result.dataValues;
-			var chosenIngredients = chosenRecipe.ingredients;
-			console.log();
+			var chosenIngredients = JSON.parse(chosenRecipe.ingredients);
+			console.log(chosenIngredients);
 			res.render("recipe-display", { recipe: chosenRecipe, ingredients: chosenIngredients, sessionUser: req.session.user });
 		});
 		

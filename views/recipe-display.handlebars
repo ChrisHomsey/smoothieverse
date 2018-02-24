@@ -13,12 +13,16 @@
 
 				<p>{{recipe.description}}</p>
 
-				<img src="{{smoothie.imgurl}}" alt="{{smoothie.name}}">
+				<img src="{{recipe.image_url}}" alt="{{recipe.name}}">
 
 				<h3>Ingredients:</h3>
 				
-				{{ingredients}}
-				
+				<ul>
+				{{#each ingredients}}
+					<li>{{this}}</li>
+				{{/each}}
+				</ul>
+
 				<h3>Instructions:</h3>
 
 				<p>{{recipe.instructions}}</p>
