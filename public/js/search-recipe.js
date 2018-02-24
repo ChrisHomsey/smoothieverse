@@ -6,6 +6,8 @@ $(document).ready(function(){
 		// save the recipe they typed into the search form
 		var searchedRecipe = $("#smoothie-search").val().trim();
 
+		var image = null;
+
 		// Use Regex to remove spaces from searchedRecipe
 		searchedRecipe = searchedRecipe.replace(/\s+/g, "").toLowerCase();
 
@@ -21,6 +23,7 @@ $(document).ready(function(){
 			} else {
 				// otherwise, append the display-search with all of the results
 				for (var i = 0; i < data.length; i++) {
+					$("#display-search").prepend(data[i].image_url);
 					$("#display-search").append("<h2>" + data[i].name + "</h2>");
 					$("#display-search").append("<h3>" + data[i].description + "</h3>");
 					$("#display-search").append("<h3>" + data[i].ingredients + "</h3>");
@@ -39,6 +42,7 @@ $(document).ready(function(){
 				$("#display-search").append("<h2> I'm sorry, but there are no smoothies available. </h2>");
 			} else {
 				for (var i = 0; i < data.length; i++) {
+					$("#display-search").prepend(data[i].image_url);
 					$("#display-search").append("<h2>" + data[i].name + "</h2>");
 					$("#display-search").append("<h3>" + data[i].description + "</h3>");
 					$("#display-search").append("<h3>" + data[i].ingredients + "</h3>");

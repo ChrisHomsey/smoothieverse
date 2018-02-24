@@ -26,11 +26,11 @@ $(document).ready(function(){
 				console.log(ingredientArray);
 			}
 		}
-
 		// a new smoothie recipe object is created from all inputs
 		var newSmoothieRecipe = {
 			name: $("#smoothie-name-input").val().trim(),
 			apiName: apiName,
+			image_url: $("#image-link").val().trim(),
 			description: $("#description-input").val().trim(),
 			ingredients: JSON.stringify(ingredientArray),
 			instructions: $("#instructions").val().trim()
@@ -49,6 +49,7 @@ $(document).ready(function(){
 		// Clear all input fields
 		$("#smoothie-name-input").val("");
 		$("#description-input").val("");
+		$("#image-link").val("");
 		$("#add-list").empty();
 		$("#instructions").val("");
 	});
