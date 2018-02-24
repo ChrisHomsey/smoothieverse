@@ -16,14 +16,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     image_url: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1, 255]
       }
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: false
     },
     ingredients: {
     	type: DataTypes.TEXT,
