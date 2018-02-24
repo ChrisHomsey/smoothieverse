@@ -23,11 +23,9 @@ $(document).ready(function(){
 			} else {
 				// otherwise, append the display-search with all of the results
 				for (var i = 0; i < data.length; i++) {
-					$("#display-search").prepend(data[i].image_url);
-					$("#display-search").append("<h2>" + data[i].name + "</h2>");
+					$("#display-search").append("<a href='/" + data[i].id +  "'><h2>" + data[i].name + "</h2></a>");
 					$("#display-search").append("<h3>" + data[i].description + "</h3>");
-					$("#display-search").append("<h3>" + data[i].ingredients + "</h3>");
-					$("#display-search").append("<h3>" + data[i].instructions + "</h3>");
+					
 				}
 			}
 			$("#smoothie-search").empty();
@@ -42,11 +40,8 @@ $(document).ready(function(){
 				$("#display-search").append("<h2> I'm sorry, but there are no smoothies available. </h2>");
 			} else {
 				for (var i = 0; i < data.length; i++) {
-					$("#display-search").prepend(data[i].image_url);
-					$("#display-search").append("<h2>" + data[i].name + "</h2>");
+					$("#display-search").append("<a href='/" + data[i].id +  "'><h2>" + data[i].name + "</h2></a>");
 					$("#display-search").append("<h3>" + data[i].description + "</h3>");
-					$("#display-search").append("<h3>" + data[i].ingredients + "</h3>");
-					$("#display-search").append("<h3>" + data[i].instructions + "</h3>");
 				}
 			}
 		});
